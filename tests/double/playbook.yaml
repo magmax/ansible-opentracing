@@ -1,0 +1,23 @@
+#!/usr/bin/env ansible-playbook
+
+- name: minimal ansible hello world
+  hosts:
+  - localhost
+  - 127.0.0.1
+#  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: task 1
+      debug:
+        msg: hello world
+
+    - name: task 2
+      fail:
+        msg: hello world
+      ignore_errors: yes
+
+    - name: task 3
+      debug:
+        msg: hello world
+
