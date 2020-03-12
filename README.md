@@ -37,11 +37,9 @@ Example:
 
 Configuration is possible by environment variables:
 
-===================  ===============  ============
-Variable             Default          Description
-===================  ===============  ============
-*AOT_LOGGING*        Undefined        Enable stdout output. Useful for debugging Ansible OpenTracing. 
-*AOT_SAMPLER_RATE*   1                Percentage of samples to be sent to the server.
-*AOT_JAEGER_HOST*    localhost        Jaeger server address.
-*AOT_JAEGER_PORT*    5775             Jaeger server UDP port.
-===================  ===============  ============
+Variable | Default | Description
+--- | --- | ---
+*AOT_LOGGING*      | Undefined | Enable stdout output. Useful for debugging Ansible OpenTracing. 
+*AOT_SAMPLER_RATE* | 1         | Percentage of samples to be sent to the server.
+*AOT_JAEGER_HOST*  | localhost | Jaeger server address.
+*AOT_JAEGER_PORT*  | 5775      | Jaeger server UDP port.
