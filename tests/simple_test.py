@@ -1,15 +1,16 @@
-import unittest
-import pexpect
-import sys
 import os
+import sys
+import unittest
+
+import pexpect
 
 
 class SimpleTest(unittest.TestCase):
     def test_simple(self):
         dir_path = os.path.dirname(os.path.realpath(__file__))
         child = pexpect.spawn(
-            'ansible-playbook playbook.yaml',
-            cwd='tests/simple',
+            "ansible-playbook playbook.yaml",
+            cwd="tests/simple",
             env={
                 "PATH": os.path.join(dir_path, "..", "venv", "bin"),
                 "AOT_LOGGING": "true",
