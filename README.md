@@ -32,3 +32,13 @@ curl https://raw.githubusercontent.com/magmax/ansible-opentracing/master/aot.py 
 Example:
 
 ![Example of Jaeger traces running ansible](ansible-jaeger.png)
+
+# Configuration
+
+Configuration is possible by environment variables:
+
+- *AOT_LOGGING*: Enable stdout output. Useful for debugging Ansible OpenTracing. 
+- *AOT_SAMPLER_RATE*: Percentage of samples to be sent to the server. 1 by
+  default.
+- *AOT_JAEGER_HOST*: Jaeger server address. "localhost" by default.
+- *AOT_JAEGER_PORT*: Jaeger server UDP port. "5775" by default.
