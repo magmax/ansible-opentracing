@@ -35,7 +35,7 @@ Example:
 
 # Configuration
 
-Configuration is possible by environment variables:
+Configuration is possible through environment variables:
 
 Variable | Default | Description
 --- | --- | ---
