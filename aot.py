@@ -123,6 +123,10 @@ class CallbackModule(CallbackBase):
         for att in atts:
             self._task_scope.span.set_tag(f"task.{att}", getattr(task, att, None))
 
+    def v2_playbook_on_handler_task_start(self, task):
+        self.v2_playbook_on_task_start(task, None)
+        self._task_scope.span.set_tag("handler", True)
+
     #    def on_any(self, *args, **kwargs):
     #        with self._tracer.start_active_span("on_any") as scope:
     #            super().on_any(*args, **kwargs)
@@ -131,6 +135,15 @@ class CallbackModule(CallbackBase):
     #                scope.span.set_tag('args_add', str(args))
     #            for k, v in kwargs.items():
     #                scope.span.set_tag(f'kwargs_add_{k}', str(v))
+
+    def v2_on_any(self, *args, **kwargs):
+        with self._tracer.start_active_span("v2_on_any") as scope:
+            super().v2_on_any(*args, **kwargs)
+            scope.span.log_kv({"stacktrace": "\n".join(traceback.format_stack(limit=4))})
+            if args:
+                scope.span.set_tag("args_add", str(args))
+            for k, v in kwargs.items():
+                scope.span.set_tag(f"kwargs_add_{k}", str(v))
 
     #    def v2_on_any(self, *args, **kwargs):
     #        with self._tracer.start_active_span("v2_on_any") as scope:
