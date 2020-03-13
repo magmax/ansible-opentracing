@@ -117,7 +117,7 @@ class CallbackModule(CallbackBase):
             for span in self._runner_spans.values():
                 span.finish()
             self._runner_spans = {}
-        self._task_scope = self._tracer.start_active_span(f"Task {task.name}")
+        self._task_scope = self._tracer.start_active_span(f"Task {task.get_name()}")
         super().v2_playbook_on_task_start(task, is_conditional)
         atts = ["name", "become"]
         for att in atts:

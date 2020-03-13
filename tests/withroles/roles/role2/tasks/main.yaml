@@ -1,0 +1,4 @@
+- name: task 2
+  fail:
+    msg: hello world
+  ignore_errors: yes

@@ -1,0 +1,12 @@
+#!/usr/bin/env ansible-playbook
+
+- name: minimal ansible hello world
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  roles:
+  - role1
+  - role2
+  - role3
+
