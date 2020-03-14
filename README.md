@@ -43,3 +43,21 @@ Variable | Default | Description
 *AOT_SAMPLER_RATE* | 1         | Percentage of samples to be sent to the server.
 *AOT_JAEGER_HOST*  | localhost | Jaeger server address.
 *AOT_JAEGER_PORT*  | 5775      | Jaeger server UDP port.
+
+# Status
+
+Operation Status:
+
+Operation | Status
+--- | ---
+localhost connection | supported
+remote connections | supported
+tasks | supported
+roles | supported
+handlers | supported
+listen | supported
+loops | --
+nolog | --
+facts | --
+
+
