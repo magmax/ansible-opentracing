@@ -5,12 +5,12 @@ import unittest
 import pexpect
 
 
-class HandlersTest(unittest.TestCase):
-    def test_handlers(self):
+class SimpleTest(unittest.TestCase):
+    def test_simple(self):
         dir_path = os.path.dirname(os.path.realpath(__file__))
         child = pexpect.spawn(
             "ansible-playbook playbook.yaml",
-            cwd="tests/handlers",
+            cwd="tests/listeners",
             env={
                 "PATH": "%s:%s"
                 % (
@@ -24,10 +24,10 @@ class HandlersTest(unittest.TestCase):
         child.expect("OT: opentracing.tracer initialized")
         child.expect("PLAY")
         child.expect("TASK.*task 1")
-        child.expect("OT: Reporting span .*?:1 Ansible.Running on localhost")
+        child.expect("OT: Reporting span (.*?):.* Ansible.Running on localhost")
 
         child.expect("PLAY RECAP")
-        child.expect("ok=2")
+        child.expect("ok=3")
         child.expect("changed=1")
         child.expect("unreachable=0")
         child.expect("skipped=0")

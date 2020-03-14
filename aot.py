@@ -136,15 +136,16 @@ class CallbackModule(CallbackBase):
     #            for k, v in kwargs.items():
     #                scope.span.set_tag(f'kwargs_add_{k}', str(v))
 
-    def v2_on_any(self, *args, **kwargs):
-        with self._tracer.start_active_span("v2_on_any") as scope:
-            super().v2_on_any(*args, **kwargs)
-            scope.span.log_kv({"stacktrace": "\n".join(traceback.format_stack(limit=4))})
-            if args:
-                scope.span.set_tag("args_add", str(args))
-            for k, v in kwargs.items():
-                scope.span.set_tag(f"kwargs_add_{k}", str(v))
-
+    # def v2_on_any(self, *args, **kwargs):
+    #    with self._tracer.start_active_span("v2_on_any") as scope:
+    #        super().v2_on_any(*args, **kwargs)
+    #        scope.span.log_kv(
+    #            {'stacktrace': '\n'.join(traceback.format_stack(limit=4))}
+    #        )
+    #        if args:
+    #            scope.span.set_tag('args_add', str(args))
+    #        for k, v in kwargs.items():
+    #            scope.span.set_tag(f'kwargs_add_{k}', str(v))
     #    def v2_on_any(self, *args, **kwargs):
     #        with self._tracer.start_active_span("v2_on_any") as scope:
     #            super().v2_on_any(*args, **kwargs)
